@@ -1,17 +1,9 @@
-export async function loadCredly(username) {
-  if (!username) return null;
+export async function loadCredly() {
   try {
-    const credlyUrl = `https://www.credly.com/users/${username}/badges.json`;
-    // Use allorigins to bypass CORS
-    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(credlyUrl)}`;
+    const res = await fetch("/assets/data/badges.json", { cache: "no-cache" });
+    if (!res.ok) throw new Error("Failed to load badges.json");
     
-    const res = await fetch(proxyUrl);
-    if (!res.ok) throw new Error("Failed to fetch from proxy");
-    
-    const proxyData = await res.json();
-    if (!proxyData.contents) throw new Error("No contents from proxy");
-    
-    const data = JSON.parse(proxyData.contents);
+    const data = await res.json();
     if (!data.data) return [];
     
     return data.data;
