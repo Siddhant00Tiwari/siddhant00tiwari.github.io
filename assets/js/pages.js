@@ -225,7 +225,7 @@ export async function renderHome(main, site) {
   observeMetrics(main);
 }
 
-export function renderAbout(main, site) {
+export async function renderAbout(main, site) {
   main.append(
     el("section", { class: "wrap page-hero" }, [
       el("div", { class: "kicker" }, "About"),
@@ -258,6 +258,46 @@ export function renderAbout(main, site) {
       ))
     ])
   );
+
+  if (site.profile.credlyUser) {
+    const credlyContainer = el("div", { class: "loading-text muted" }, "Loading badges from Credly...");
+    const credlySection = el("section", { class: "section wrap" }, [
+      el("div", { class: "section-head" }, [
+        el("h2", {}, "Live Credentials"),
+        el("p", { class: "muted" }, "Fetched from Credly")
+      ]),
+      credlyContainer
+    ]);
+    main.append(credlySection);
+
+    import("./credly.js").then(async ({ loadCredly }) => {
+      const badges = await loadCredly(site.profile.credlyUser);
+      clear(credlyContainer);
+
+      if (!badges || !badges.length) {
+        credlyContainer.textContent = "No badges found or Credly is currently unreachable.";
+        credlyContainer.className = "empty";
+        return;
+      }
+
+      credlyContainer.className = "grid-4 credly-grid";
+      badges.forEach(badge => {
+        // Find the public link for the badge, defaults to criteria url
+        const publicUrl = `https://www.credly.com/badges/${badge.id}/public_url`;
+        const item = el("article", { class: "card credly-card" }, [
+          el("a", { href: publicUrl, target: "_blank", rel: "noreferrer", class: "credly-link" }, [
+            el("img", { src: badge.badge_template.image_url, alt: badge.badge_template.name, loading: "lazy", class: "credly-img" }),
+            el("h4", {}, badge.badge_template.name)
+          ]),
+          el("p", { class: "muted text-sm" }, badge.issuer.name)
+        ]);
+        credlyContainer.append(item);
+      });
+    }).catch(err => {
+      console.error(err);
+      credlyContainer.textContent = "Failed to load badges.";
+    });
+  }
 }
 
 export async function renderProjects(main, site) {
