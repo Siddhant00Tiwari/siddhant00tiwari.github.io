@@ -284,12 +284,17 @@ export async function renderAbout(main, site) {
       badges.forEach(badge => {
         // Find the public link for the badge, defaults to criteria url
         const publicUrl = `https://www.credly.com/badges/${badge.id}/public_url`;
+        const skills = badge.badge_template.skills || [];
+        
         const item = el("article", { class: "card credly-card" }, [
           el("a", { href: publicUrl, target: "_blank", rel: "noreferrer", class: "credly-link" }, [
             el("img", { src: badge.badge_template.image_url, alt: badge.badge_template.name, loading: "lazy", class: "credly-img" }),
             el("h4", {}, badge.badge_template.name)
           ]),
-          el("p", { class: "muted text-sm" }, badge.issuer.name)
+          el("p", { class: "muted text-sm" }, badge.issuer.name),
+          skills.length ? el("div", { class: "tag-row credly-skills" }, 
+            skills.map(skill => el("span", { class: "tag" }, skill.name))
+          ) : null
         ]);
         credlyContainer.append(item);
       });

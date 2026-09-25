@@ -832,3 +832,8 @@ h2 {
 .text-sm {
   font-size: 0.85rem !important;
 }
+
+.credly-skills {
+  justify-content: center;
+  margin-top: 18px;
+}
