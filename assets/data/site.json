@@ -46,13 +46,20 @@
       "detail": "Production database access locked behind WireGuard."
     },
     {
-      "value": 3,
+      "value": 4,
       "suffix": "",
       "label": "Core certifications",
-      "detail": "AWS SAA-C03, CKA, and RHCSA."
+      "detail": "AWS SAA-C03, CKA, CAPA, and RHCSA."
     }
   ],
   "certs": [
+    {
+      "id": "capa",
+      "name": "CAPA",
+      "full": "Certified Argo Project Associate",
+      "issuer": "Linux Foundation",
+      "accent": "blue"
+    },
     {
       "id": "cka",
       "name": "CKA",
