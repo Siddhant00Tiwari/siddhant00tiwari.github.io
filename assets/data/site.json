@@ -5,13 +5,13 @@
     "handle": "root@siddhant",
     "role": "DevOps & Cloud Infrastructure Engineer",
     "tagline": "I design resilient platforms with a bias for Kubernetes, cost control, and zero-trust access.",
-    "summary": "DevOps engineer focused on secure, scalable, cost-efficient cloud infrastructure. Work centers on automation, high-availability systems, and deep observability.",
-    "location": "India",
+    "summary": "DevOps Engineer with 1.5+ years of experience in designing, automating, and securing cloud infrastructure. Specialized in AWS, Hetzner Cloud, Kubernetes, Docker, CI/CD, IaC, observability, and DevSecOps.",
+    "location": "Bhopal, M.P.",
     "availability": "Open to platform, SRE, and DevOps roles",
     "githubUser": "Siddhant00Tiwari",
     "timezone": "Asia/Kolkata",
     "avatar": "https://avatars.githubusercontent.com/u/110492372?v=4",
-    "email": "",
+    "email": "tiwarisiddhant000@gmail.com",
     "credlyUser": "siddhant-tiwari.d9aaf649",
     "links": {
       "website": "https://siddhant-tiwari.com",
@@ -78,79 +78,71 @@
   "stack": [
     {
       "id": "cloud",
-      "name": "Cloud",
-      "items": ["AWS EC2", "ECS / Fargate", "S3", "IAM", "VPC", "Glue", "Redshift", "Hetzner Cloud"]
+      "name": "Cloud Platforms",
+      "items": ["AWS (EC2, ECS, S3, IAM, VPC)", "Hetzner Cloud"]
     },
     {
       "id": "orchestration",
-      "name": "Orchestration",
-      "items": ["Kubernetes", "Docker", "Docker Swarm", "Harbor"]
+      "name": "Containerization",
+      "items": ["Kubernetes (K3s)", "Docker", "Docker Swarm", "Harbor", "Argo CD"]
     },
     {
       "id": "delivery",
       "name": "CI/CD & IaC",
-      "items": ["GitHub Actions", "Terraform", "Ansible", "Jenkins", "Unleash"]
+      "items": ["GitHub Actions", "Jenkins", "AWS CodeDeploy", "Terraform", "Ansible", "Bash"]
     },
     {
       "id": "observability",
       "name": "Observability",
-      "items": ["Prometheus", "Grafana", "Alertmanager", "SigNoz", "Datadog", "OpenTelemetry"]
+      "items": ["Datadog", "Prometheus", "Grafana", "SigNoz", "OpenReplay", "Uptime Kuma", "UptimeRobot", "Alertmanager"]
     },
     {
       "id": "networking",
-      "name": "Networking & Access",
-      "items": ["WireGuard", "NGINX", "Apache", "AWS ALB"]
+      "name": "Networking & Security",
+      "items": ["WireGuard VPN", "NGINX", "Apache", "ModSecurity (OWASP CRS)"]
     },
     {
       "id": "data",
-      "name": "Data & Runtime",
-      "items": ["PostgreSQL", "Strapi", "Redshift", "Feature flags"]
+      "name": "Databases",
+      "items": ["MySQL", "PostgreSQL"]
+    },
+    {
+      "id": "security",
+      "name": "Security & Testing",
+      "items": ["OWASP ZAP", "Nessus", "Semgrep", "Burp Suite", "Nmap", "Gobuster", "Hydra", "Hashcat", "John the Ripper"]
     }
   ],
   "experience": [
     {
-      "id": "cost",
-      "period": "Platform work",
-      "title": "Cloud cost engineering",
-      "org": "AWS + Harbor",
-      "summary": "Cut object storage and registry spend without taking workloads offline.",
+      "id": "pearlthoughts-engineer",
+      "period": "January 2026 - Present",
+      "title": "DevOps Engineer",
+      "org": "PearlThoughts",
+      "summary": "Managed production infrastructure on AWS and Hetzner Cloud, driving major cost reductions and security improvements.",
       "points": [
-        "Reduced Amazon S3 spend by 88% with lifecycle policies and backup compression.",
-        "Migrated container images from ECR to Harbor and recovered about 60% of registry cost.",
-        "Moved compute-heavy container workloads toward Hetzner where it was cheaper to run."
+        "Built and maintained GitHub Actions CI/CD pipelines.",
+        "Administered Kubernetes (K3s) and Docker Swarm clusters.",
+        "Slashed AWS S3 storage costs by 88% via lifecycle policies and compression.",
+        "Migrated AWS Lambda workloads to Dockerized Python services.",
+        "Configured observability and monitoring using Datadog, Prometheus, Grafana, SigNoz, OpenReplay, Uptime Kuma, and Alertmanager.",
+        "Secured networks using WireGuard VPN to prevent public DB exposure.",
+        "Boosted security with ModSecurity (OWASP CRS) on K3s Ingress, rate limiting, and HTTP anomaly alerts.",
+        "Performed vulnerability assessments using OWASP ZAP, Nessus, and Semgrep.",
+        "Transitioned from Amazon ECR to self-hosted Harbor, reducing registry costs by ~60%.",
+        "Set up canary deployments using AWS CodeDeploy."
       ]
     },
     {
-      "id": "zero-trust",
-      "period": "Security",
-      "title": "Zero-trust production access",
-      "org": "WireGuard",
-      "summary": "Removed the public path to production data.",
+      "id": "pearlthoughts-intern",
+      "period": "June 2025 - December 2025",
+      "title": "DevOps Intern",
+      "org": "PearlThoughts",
+      "summary": "Supported Kubernetes and Docker-based production infrastructure and CI/CD operations.",
       "points": [
-        "Put production database access behind WireGuard instead of open security groups.",
-        "Treated the VPN as the control plane for operator access, not a convenience overlay."
-      ]
-    },
-    {
-      "id": "observe",
-      "period": "Reliability",
-      "title": "Observability stack",
-      "org": "Prometheus · Grafana · SigNoz",
-      "summary": "Centralized metrics, logs, and traces so failures show up before users do.",
-      "points": [
-        "Deployed Prometheus, Grafana, and Alertmanager with Slack routing.",
-        "Added SigNoz and OpenTelemetry tracing across Node.js services.",
-        "Used Unleash feature flags and canary releases to ship without all-or-nothing deploys."
-      ]
-    },
-    {
-      "id": "data-platform",
-      "period": "Data",
-      "title": "Analytics pipelines",
-      "org": "AWS Glue · Redshift",
-      "summary": "Built ETL that feeds analytics without hand-operated jobs.",
-      "points": [
-        "Implemented Glue jobs that land curated data in Redshift for analytics workloads."
+        "Deployed Node.js backends and CMS services on AWS EC2/ECS.",
+        "Assisted with GitHub Actions CI/CD pipelines.",
+        "Contributed to cost optimization and infrastructure automation.",
+        "Assisted with monitoring, logging, and deployment automation setups."
       ]
     }
   ],
